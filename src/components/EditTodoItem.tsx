@@ -12,12 +12,11 @@ const EditTodoItem: React.FC<Props> = ({ todo, toggleTodoEdit }) => {
   }
 
   return (
-    <form>
-      <p>edit todo item</p>
-      <input type="text" />
-      <button>
+    <form className="edit-todo-form">
+      <input type="text" value={todo.text} />
+      <span className="save">
         <i className="fa-solid fa-check"></i>
-      </button>
+      </span>
       <button onClick={handleClickToggleEdit}>Annuler</button>
     </form>
   );

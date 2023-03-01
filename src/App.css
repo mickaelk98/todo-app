@@ -91,3 +91,32 @@ h1 {
 .todo-item .edit {
   margin-right: 10px;
 }
+
+.edit-todo-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-todo-form input {
+  padding: 10px;
+  background: none;
+  outline: none;
+  color: #fff;
+  border: none;
+  flex: 1 0 0;
+}
+
+.edit-todo-form .save {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.edit-todo-form button {
+  padding: 5px 2px;
+  margin-right: 10px;
+  background: var(--secondary-color);
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
