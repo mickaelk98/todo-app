@@ -3,6 +3,7 @@ import "./App.css";
 import { Todo } from "./interface/TodoInterface";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
+import Filter from "./components/Filter";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -46,6 +47,7 @@ const App: React.FC = () => {
         deleteTodo={deleteTodo}
         editTodo={editTodo}
       />
+      <Filter />
     </div>
   );
 };
