@@ -8,6 +8,7 @@ interface Props {
   toggleTodoEdit: (todoId: string) => void;
   toggleTodoDone: (todoId: string) => void;
   deleteTodo: (todoId: string) => void;
+  editTodo: (todo: Todo) => void;
 }
 
 const TodoList: React.FC<Props> = ({
@@ -15,6 +16,7 @@ const TodoList: React.FC<Props> = ({
   toggleTodoEdit,
   toggleTodoDone,
   deleteTodo,
+  editTodo,
 }) => {
   return (
     <ul className="todo-list">
@@ -22,6 +24,7 @@ const TodoList: React.FC<Props> = ({
         todo.edit ? (
           <EditTodoItem
             toggleTodoEdit={toggleTodoEdit}
+            editTodo={editTodo}
             key={todo._id}
             todo={todo}
           />

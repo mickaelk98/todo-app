@@ -31,6 +31,10 @@ const App: React.FC = () => {
     setTodos(todos.filter((todo) => todo._id !== todoId));
   }
 
+  function editTodo(newTodo: Todo) {
+    setTodos(todos.map((todo) => (todo._id === newTodo._id ? newTodo : todo)));
+  }
+
   return (
     <div className="App">
       <h1>todo app</h1>
@@ -40,6 +44,7 @@ const App: React.FC = () => {
         toggleTodoEdit={toggleTodoEdit}
         toggleTodoDone={toggleTodoDone}
         deleteTodo={deleteTodo}
+        editTodo={editTodo}
       />
     </div>
   );
