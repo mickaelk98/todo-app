@@ -5,12 +5,14 @@ interface Props {
   todo: Todo;
   toggleTodoEdit: (todoId: string) => void;
   toggleTodoDone: (todoId: string) => void;
+  deleteTodo: (todoId: string) => void;
 }
 
 const TodoItem: React.FC<Props> = ({
   todo,
   toggleTodoEdit,
   toggleTodoDone,
+  deleteTodo,
 }) => {
   function handleClickToggleEdit() {
     toggleTodoEdit(todo._id);
@@ -20,8 +22,12 @@ const TodoItem: React.FC<Props> = ({
     toggleTodoDone(todo._id);
   }
 
+  function handleClickDeleteTodo() {
+    deleteTodo(todo._id);
+  }
+
   return (
-    <li onClick={handleClickToggleDone} className="todo-item">
+    <li className="todo-item">
       {todo.done ? (
         <span style={{ textDecoration: "line-through" }} className="text">
           {todo.text}
@@ -29,13 +35,13 @@ const TodoItem: React.FC<Props> = ({
       ) : (
         <span className="text">{todo.text}</span>
       )}
-      <span className="check">
+      <span onClick={handleClickToggleDone} className="check">
         <i className="fa-solid fa-check"></i>
       </span>
       <span onClick={handleClickToggleEdit} className="edit">
         <i className="fa-solid fa-pen"></i>
       </span>
-      <span className="delete">
+      <span onClick={handleClickDeleteTodo} className="delete">
         <i className="fa-solid fa-trash"></i>
       </span>
     </li>

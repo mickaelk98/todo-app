@@ -27,6 +27,10 @@ const App: React.FC = () => {
     );
   }
 
+  function deleteTodo(todoId: string) {
+    setTodos(todos.filter((todo) => todo._id !== todoId));
+  }
+
   return (
     <div className="App">
       <h1>todo app</h1>
@@ -35,6 +39,7 @@ const App: React.FC = () => {
         todoList={todos}
         toggleTodoEdit={toggleTodoEdit}
         toggleTodoDone={toggleTodoDone}
+        deleteTodo={deleteTodo}
       />
     </div>
   );
