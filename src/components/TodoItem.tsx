@@ -3,16 +3,21 @@ import { Todo } from "../interface/TodoInterface";
 
 interface Props {
   todo: Todo;
+  toggleTodoEdit: (todoId: string) => void;
 }
 
-const TodoItem: React.FC<Props> = ({ todo }) => {
+const TodoItem: React.FC<Props> = ({ todo, toggleTodoEdit }) => {
+  function handleClickToggleEdit() {
+    toggleTodoEdit(todo._id);
+  }
+
   return (
     <li className="todo-item">
       <span className="text">{todo.text}</span>
       <span className="check">
         <i className="fa-solid fa-check"></i>
       </span>
-      <span className="edit">
+      <span onClick={handleClickToggleEdit} className="edit">
         <i className="fa-solid fa-pen"></i>
       </span>
       <span className="delete">

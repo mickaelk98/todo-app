@@ -11,11 +11,19 @@ const App: React.FC = () => {
     setTodos([...todos, todo]);
   }
 
+  function toggleTodoEdit(todoId: string) {
+    setTodos(
+      todos.map((todo) =>
+        todo._id === todoId ? { ...todo, edit: !todo.edit } : todo
+      )
+    );
+  }
+
   return (
     <div className="App">
       <h1>todo app</h1>
       <AddTodo addTodo={addTodo} />
-      <TodoList todoList={todos} />
+      <TodoList todoList={todos} toggleTodoEdit={toggleTodoEdit} />
     </div>
   );
 };
