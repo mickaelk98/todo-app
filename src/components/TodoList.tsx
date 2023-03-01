@@ -6,9 +6,14 @@ import TodoItem from "./TodoItem";
 interface Props {
   todoList: Todo[];
   toggleTodoEdit: (todoId: string) => void;
+  toggleTodoDone: (todoId: string) => void;
 }
 
-const TodoList: React.FC<Props> = ({ todoList, toggleTodoEdit }) => {
+const TodoList: React.FC<Props> = ({
+  todoList,
+  toggleTodoEdit,
+  toggleTodoDone,
+}) => {
   return (
     <ul className="todo-list">
       {todoList.map((todo) =>
@@ -21,6 +26,7 @@ const TodoList: React.FC<Props> = ({ todoList, toggleTodoEdit }) => {
         ) : (
           <TodoItem
             toggleTodoEdit={toggleTodoEdit}
+            toggleTodoDone={toggleTodoDone}
             key={todo._id}
             todo={todo}
           />

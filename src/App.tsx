@@ -11,6 +11,14 @@ const App: React.FC = () => {
     setTodos([...todos, todo]);
   }
 
+  function toggleTodoDone(todoId: string) {
+    setTodos(
+      todos.map((todo) =>
+        todo._id === todoId ? { ...todo, done: !todo.done } : todo
+      )
+    );
+  }
+
   function toggleTodoEdit(todoId: string) {
     setTodos(
       todos.map((todo) =>
@@ -23,7 +31,11 @@ const App: React.FC = () => {
     <div className="App">
       <h1>todo app</h1>
       <AddTodo addTodo={addTodo} />
-      <TodoList todoList={todos} toggleTodoEdit={toggleTodoEdit} />
+      <TodoList
+        todoList={todos}
+        toggleTodoEdit={toggleTodoEdit}
+        toggleTodoDone={toggleTodoDone}
+      />
     </div>
   );
 };
