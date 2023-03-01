@@ -11,8 +11,13 @@
   --background-color: #ecf0f1;
 }
 
+/* general */
 html, body {
   font-family: 'Playfair Display', serif;
+}
+
+ul {
+  list-style: none;
 }
 
 .App {
@@ -50,4 +55,39 @@ h1 {
   border: 1px solid var(--primary-color);
   color: #fff;
   cursor: pointer;
+}
+
+.todo-list {
+  background: var(--primary-color);
+  color: #fff;
+  /* padding: 10px; */
+  width: 80%;
+  margin: 0 auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.todo-item .text,
+.todo-item .check,
+.todo-item .edit,
+.todo-item .delete {
+  cursor: pointer;
+}
+
+.todo-item .text {
+  flex: 1 0 0;
+}
+
+.todo-item .check {
+  margin-right: 10px;
+}
+
+.todo-item .edit {
+  margin-right: 10px;
 }
