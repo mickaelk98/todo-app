@@ -35,18 +35,23 @@ h1 {
 /* add Todo */
 .add-task-form {
   width: 90%;
-  margin: 20px 0;
+  max-width: 700px;
+  margin: 20px auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
+}
+
+.add-task-form div {
+  width: 100%;
 }
 
 .add-task-form input {
   border: 1px solid var(--secondary-color);
   outline: none;
   padding: 8px;
-  margin-right: 8px;
-  width: 60%;
+  width: 80%;
 }
 
 .add-task-form button {
@@ -55,13 +60,14 @@ h1 {
   border: 1px solid var(--primary-color);
   color: #fff;
   cursor: pointer;
+  width: 20%;
 }
 
 .todo-list {
   background: var(--primary-color);
   color: #fff;
-  /* padding: 10px; */
-  width: 80%;
+  width: 90%;
+  max-width: 700px;
   margin: 0 auto;
 }
 

@@ -26,13 +26,15 @@ const AddTodo: React.FC<Props> = ({ addTodo }) => {
 
   return (
     <form className="add-task-form" onSubmit={addNewTodo}>
-      <input
-        value={inputValue}
-        onChange={handleChange}
-        type="text"
-        placeholder="Ajouter une tache"
-      />
-      <button type="submit">Ajouter</button>
+      <div>
+        <input
+          value={inputValue}
+          onChange={handleChange}
+          type="text"
+          placeholder="Ajouter une tache"
+        />
+        <button type="submit">Ajouter</button>
+      </div>
     </form>
   );
 };
