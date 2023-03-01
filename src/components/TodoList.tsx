@@ -1,41 +1,18 @@
-import React from "react";
-import { Todo } from "../interface/TodoInterface";
+import React, { useContext } from "react";
+import { TodosContext } from "../context/TodosContext";
 import EditTodoItem from "./EditTodoItem";
 import TodoItem from "./TodoItem";
 
-interface Props {
-  todoList: Todo[];
-  toggleTodoEdit: (todoId: string) => void;
-  toggleTodoDone: (todoId: string) => void;
-  deleteTodo: (todoId: string) => void;
-  editTodo: (todo: Todo) => void;
-}
+const TodoList: React.FC = () => {
+  const { todos } = useContext(TodosContext);
 
-const TodoList: React.FC<Props> = ({
-  todoList,
-  toggleTodoEdit,
-  toggleTodoDone,
-  deleteTodo,
-  editTodo,
-}) => {
   return (
     <ul className="todo-list">
-      {todoList.map((todo) =>
+      {todos.map((todo) =>
         todo.edit ? (
-          <EditTodoItem
-            toggleTodoEdit={toggleTodoEdit}
-            editTodo={editTodo}
-            key={todo._id}
-            todo={todo}
-          />
+          <EditTodoItem key={todo._id} todo={todo} />
         ) : (
-          <TodoItem
-            toggleTodoEdit={toggleTodoEdit}
-            toggleTodoDone={toggleTodoDone}
-            deleteTodo={deleteTodo}
-            key={todo._id}
-            todo={todo}
-          />
+          <TodoItem key={todo._id} todo={todo} />
         )
       )}
     </ul>

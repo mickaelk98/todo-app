@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodosContext } from "../context/TodosContext";
 import { Todo } from "../interface/TodoInterface";
 
 interface Props {
   todo: Todo;
-  toggleTodoEdit: (todoId: string) => void;
-  toggleTodoDone: (todoId: string) => void;
-  deleteTodo: (todoId: string) => void;
 }
 
-const TodoItem: React.FC<Props> = ({
-  todo,
-  toggleTodoEdit,
-  toggleTodoDone,
-  deleteTodo,
-}) => {
+const TodoItem: React.FC<Props> = ({ todo }) => {
+  const { toggleTodoEdit, toggleTodoDone, deleteTodo } =
+    useContext(TodosContext);
+
   function handleClickToggleEdit() {
     toggleTodoEdit(todo._id);
   }

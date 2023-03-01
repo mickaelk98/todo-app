@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TodosContext } from "../context/TodosContext";
 import { Todo } from "../interface/TodoInterface";
 
-interface Props {
-  addTodo: (todo: Todo) => void;
-}
-
-const AddTodo: React.FC<Props> = ({ addTodo }) => {
+const AddTodo: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
+  const { addTodo } = useContext(TodosContext);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValue(e.target.value);
